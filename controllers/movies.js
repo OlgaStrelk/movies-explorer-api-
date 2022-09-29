@@ -1,12 +1,12 @@
-const Movie = require("../models/Movie");
-const BadRequestError = require("../utils/errors/BadRequestError");
-const NotFoundError = require("../utils/errors/NotFoundError");
-const ForbiddenError = require("../utils/errors/ForbiddenError");
+const Movie = require('../models/movie');
+const BadRequestError = require('../utils/errors/BadRequestError');
+const NotFoundError = require('../utils/errors/NotFoundError');
+const ForbiddenError = require('../utils/errors/ForbiddenError');
 const {
   MOVIE_DATA_ERR_MESSAGE,
   MOVIE_ID_ERR_MESSAGE,
   DELETE_MOVIE_ERR_MESSAGE,
-} = require("../utils/consts");
+} = require('../utils/consts');
 
 module.exports.createMovie = (req, res, next) => {
   const {
@@ -38,7 +38,7 @@ module.exports.createMovie = (req, res, next) => {
   })
     .then((movie) => res.send({ data: movie }))
     .catch((err) => {
-      if (err.name === "ValidationError") {
+      if (err.name === 'ValidationError') {
         next(new BadRequestError(MOVIE_DATA_ERR_MESSAGE));
       } else {
         next(err);
@@ -60,7 +60,7 @@ module.exports.deleteMovieById = (req, res, next) => {
       }
     })
     .catch((err) => {
-      if (err.name === "CastError") {
+      if (err.name === 'CastError') {
         next(new BadRequestError(MOVIE_DATA_ERR_MESSAGE));
       } else {
         next(err);
