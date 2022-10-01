@@ -2,13 +2,13 @@ const router = require('express').Router();
 const {
   getMovies,
   createMovie,
-  deleteMovie,
+  deleteMovieById,
 } = require('../controllers/movies');
 
 router.get('/', getMovies);
 
 router.post('/', createMovie);
 
-router.delete('/_id', deleteMovie);
+router.delete('/:_id', deleteMovieById);
 
 module.exports = router;
