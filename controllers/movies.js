@@ -9,37 +9,14 @@ const {
 } = require('../utils/consts');
 
 module.exports.createMovie = (req, res, next) => {
-  const {
-    country,
-    director,
-    duration,
-    year,
-    description,
-    image,
-    trailer,
-    nameRU,
-    nameEN,
-    thumbnail,
-    movieId,
-  } = req.body;
-
-  Movie.create({
-    country,
-    director,
-    duration,
-    year,
-    description,
-    image,
-    trailer,
-    nameRU,
-    nameEN,
-    thumbnail,
-    movieId,
-  })
-    .then((movie) => res.send({ data: movie }))
+  const owner = req.user._id;
+  Movie.create({ owner, ...req.body })
+    .then((movie) => {
+      res.send({ data: movie });
+    })
     .catch((err) => {
       if (err.name === 'ValidationError') {
-        next(new BadRequestError(MOVIE_DATA_ERR_MESSAGE));
+        next(new BadRequestError(err.message));
       } else {
         next(err);
       }
@@ -47,6 +24,8 @@ module.exports.createMovie = (req, res, next) => {
 };
 
 module.exports.deleteMovieById = (req, res, next) => {
+  console.log('delete f');
+
   Movie.findById(req.params.movieId)
     .then((movie) => {
       if (!movie) {

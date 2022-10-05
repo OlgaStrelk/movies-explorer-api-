@@ -9,6 +9,6 @@ router.get('/', getMovies);
 
 router.post('/', createMovie);
 
-router.delete('/:_id', deleteMovieById);
+router.delete('/:movieId', deleteMovieById);
 
 module.exports = router;

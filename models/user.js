@@ -1,8 +1,10 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
-// const bcrypt = require('bcryptjs');
-// const UnauthorizedError = require('../utils/errors/UnauthorizedError');
+const bcrypt = require('bcryptjs');
+const UnauthorizedError = require('../utils/errors/UnauthorizedError');
+const { LOGIN_ERR_MESSAGE } = require('../utils/consts');
 
+console.log(validator.isStrongPassword);
 const userSchema = new mongoose.Schema(
   {
     email: {
@@ -20,12 +22,6 @@ const userSchema = new mongoose.Schema(
     password: {
       type: String,
       required: true,
-      // validate: {
-      //   validator(password) {
-      //     return validator.isStrongPassword(password);
-      //   },
-      //   message: 'Пароль недостаточно надёжный',
-      // },
       select: false,
     },
 
@@ -40,25 +36,25 @@ const userSchema = new mongoose.Schema(
   { versionKey: false, new: true, runValidators: true },
 );
 
-// userSchema.statics.findUserByCredentials = function (email, password) {
-//   return this.findOne({ email })
-//     .select('+password')
-//     .then((user) => {
-//       if (!user) {
-//         return Promise.reject(
-//           new UnauthorizedError('Неправильные почта или пароль'),
-//         );
-//       }
+userSchema.statics.findUserByCredentials = function (email, password) {
+  return this.findOne({ email })
+    .select('+password')
+    .then((user) => {
+      if (!user) {
+        return Promise.reject(
+          new UnauthorizedError(LOGIN_ERR_MESSAGE),
+        );
+      }
 
-//       return bcrypt.compare(password, user.password).then((matched) => {
-//         if (!matched) {
-//           return Promise.reject(
-//             new UnauthorizedError('Неправильные почта или пароль'),
-//           );
-//         }
-//         return user;
-//       });
-//     });
-// };
+      return bcrypt.compare(password, user.password).then((matched) => {
+        if (!matched) {
+          return Promise.reject(
+            new UnauthorizedError(LOGIN_ERR_MESSAGE),
+          );
+        }
+        return user;
+      });
+    });
+};
 
 module.exports = mongoose.model('user', userSchema);

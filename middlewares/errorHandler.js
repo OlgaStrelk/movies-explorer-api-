@@ -1,3 +1,5 @@
+const { SERVER_ERR_MESSAGE } = require('../utils/consts');
+
 const errorHandler = (err, _, res, next) => {
   const { statusCode = 500, message } = err;
 
@@ -5,7 +7,7 @@ const errorHandler = (err, _, res, next) => {
     .status(statusCode)
     .send({
       message: statusCode === 500
-        ? 'На сервере произошла ошибка'
+        ? SERVER_ERR_MESSAGE
         : message,
     });
   next();
