@@ -4,7 +4,6 @@ const bcrypt = require('bcryptjs');
 const UnauthorizedError = require('../utils/errors/UnauthorizedError');
 const { LOGIN_ERR_MESSAGE } = require('../utils/consts');
 
-console.log(validator.isStrongPassword);
 const userSchema = new mongoose.Schema(
   {
     email: {

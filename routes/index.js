@@ -1,13 +1,13 @@
 const router = require('express').Router();
 const { createUser, login } = require('../controllers/auths');
 const isAuthorized = require('../middlewares/isAuthorized');
-// const { userValidator } = require('../middlewares/validator');
 const NotFoundError = require('../utils/errors/NotFoundError');
 const { NOT_FOUND_PAGE_ERR_MESSAGE } = require('../utils/consts');
+const { userValidator } = require('../middlewares/validator');
 
-router.post('/signup', createUser);
+router.post('/signup', userValidator, createUser);
 
-router.post('/signin', login);
+router.post('/signin', userValidator, login);
 
 router.use(isAuthorized);
 

@@ -1,7 +1,7 @@
 const allowedCors = [
-  'http://movies.site.strelod.nomoredomains.sbs',
-  'https://movies.site.strelod.nomoredomains.sbs',
-  'https://api.movies.site.strelod.nomoredomains.sbs',
+  'http://beatfilms.nomoredomains.sbs',
+  'https://beatfilms.nomoredomains.sbs',
+  'https://api.beatfilms.nomoredomains.sbs',
   'http://localhost:3001',
 ];
 
