@@ -109,7 +109,7 @@ DELETE https://api.cinema-explorer.students.nomoredomains.icu/movies/*:id доб
 
 _пустое тело запроса_
 
-```
+
 ## Реализованы
 
 * подключение к базе данных 
