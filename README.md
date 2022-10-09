@@ -94,7 +94,7 @@ POST https://api.beatfilms.nomoredomains.icu/movies
   "director": "Balagov K.",
   "duration": 118,
   "year": "2017",
-  "description": "sokurov's student",
+  "description": "1998 год, Нальчик. Илана — девочка-подросток из хорошей семьи, которая все делает наоборот. Перечит матери. Спорит с отцом. Чинит машины в автомастерской, не вылезая из спецодежды. Встречается с парнем, который не нравится ее родителям. Пацанка и красавица, она идет своим путем и жаждет свободы, но когда в доме происходит страшная трагедия, именно Илана оказывается единственной, кто способен спасти семью. Однако какой ценой?",
   "image": "https://www.google.com/search?sxsrf=ALiCzsaGKx-hpu3c7MzQPUrTS_hDCXiBEQ:1664898889075&q=%D0%A2%D0%B5%D1%81%D0%BD%D0%BE%D1%82%D0%B0&stick=H4sIAAAAAAAAAONgFuLVT9c3NEypMi1MK6sqV4Jwk81Ni1OM0vK0JLKTrfQLUvMLclKBVFFxfp5Vbn5ZZmrxIla-C4subL3YeGHvhX0Xmy5sAABAgW0OSwAAAA&sa=X&ved=2ahUKEwi56vrW98b6AhVYaN4KHc1xDDgQ9OUBegQIExAF&biw=764&bih=628&dpr=1.25#",
   "trailerLink": "https://www.youtube.com/watch?v=mMTOCM-VTBE",
   "thumbnail": "https://www.youtube.com/watch?v=mMTOCM-VTBE",
