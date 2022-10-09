@@ -105,7 +105,7 @@ POST https://api.beatfilms.nomoredomains.icu/movies
 
 * удалить фильм 
 
-DELETE https://api.cinema-explorer.students.nomoredomains.icu/movies/*:id добавленного фильма*
+DELETE https://api.cinema-explorer.students.nomoredomains.icu/movies/id_добавленного_фильма
 
 _пустое тело запроса_
 
